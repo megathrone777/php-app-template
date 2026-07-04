@@ -1,0 +1,116 @@
+@layer base {
+  .content {
+    font: normal 16px var(--font-display);
+    line-height: 26px;
+    overflow-x: hidden;
+  }
+
+  .content img {
+    border-radius: 16px;
+    display: inline;
+    width: 100%;
+  }
+
+  .content p {
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+
+  .content p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .content h1 {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 34px;
+    margin-bottom: 16px;
+  }
+
+  .content h2 {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  .content h3 {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 30px;
+    margin-bottom: 22px;
+  }
+
+  .content h4 {
+    margin-bottom: 8px;
+  }
+
+  .content ul, .content ol {
+    line-height: 28px;
+    margin-bottom: 24px;
+    padding-left: 20px;
+  }
+
+  .content ul {
+    list-style: disc;
+  }
+
+  .content ol {
+    list-style: decimal;
+  }
+
+  .content a {
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .content a:hover {
+    text-decoration: none;
+  }
+
+  .content table {
+    border-collapse: separate;
+    border-radius: 16px;
+    border-spacing: 0;
+    border: 2px solid var(--color-black);
+    font-size: 11px;
+    margin-block: 24px;
+    width: 100%;
+  }
+
+  .content table > thead > tr > th,
+  .content table > tbody > tr > td {
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-color: var(--color-black);
+    font-size: 14px;
+    padding-block: 12px;
+    vertical-align: middle;
+  }
+
+  .content table > thead > tr > th {
+    padding-inline: 16px;
+  }
+
+  .content table > tbody > tr > td {
+    line-height: 20px;
+    padding-inline: 8px;
+  }
+
+  .content table > thead > tr > th > p,
+  .content table > tbody > tr > td > p {
+    display: inline;
+    margin: 0;
+  }
+
+  .content table > tbody > tr:last-of-type > td {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 840px) {
+    .content img {
+      max-width: 800px;
+      width: auto;
+    }
+  } 
+}

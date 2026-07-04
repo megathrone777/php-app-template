@@ -1,0 +1,15 @@
+{
+  "authors": [
+    {
+      "name": "Andrii Taranenko",
+      "email": "megathrone3333@gmail.com"
+    }
+  ],
+  "name": "krol2/php-app-template",
+  "require": {
+    "gabordemooij/redbean": "^5.7",
+    "phpmailer/phpmailer": "^7.1",
+    "twig/twig": "^3.28"
+  },
+  "type": "project"
+}

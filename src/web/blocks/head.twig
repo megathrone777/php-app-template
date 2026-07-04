@@ -1,0 +1,49 @@
+<head>
+	<meta charset="utf-8">
+	<meta content="initial-scale=1.0, viewport-fit=cover, width=device-width" name="viewport">
+	<meta content="telephone=no" name="format-detection">	
+	<title>{{ title }} | WEBSITE</title>
+	<style>
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 400;
+			src: url("/src/web/assets/fonts/AvenirNext-Regular.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 500;
+			src: url("/src/web/assets/fonts/AvenirNext-Medium.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 600;
+			src: url("/src/web/assets/fonts/AvenirNext-SemiBold.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 700;
+			src: url("/src/web/assets/fonts/AvenirNext-Bold.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 900;
+			src: url("/src/web/assets/fonts/AvenirNext-Black.woff2") format("woff2");
+		}
+	</style>
+
+	<link href="/src/web/assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="/src/web/assets/favicon.png" rel="apple-touch-icon">
+	<link href="/src/web/assets/favicon.png" rel="apple-touch-icon" sizes="76x76">
+	<link href="/src/web/assets/favicon.png" rel="apple-touch-icon" sizes="152x152">
+	<link href="/src/web/assets/favicon.png" rel="apple-touch-startup-image">
+	{{ vite(["src/web/assets/css/init.css", "src/web/assets/js/init.js"]) }}
+</head>

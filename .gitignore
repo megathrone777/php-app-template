@@ -1,0 +1,10 @@
+.idea
+.env
+.env.prod
+.vscode
+*.db
+build
+node_modules
+var
+vendor
+uploads
