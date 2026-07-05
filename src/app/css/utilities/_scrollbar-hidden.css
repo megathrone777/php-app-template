@@ -1,0 +1,17 @@
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    @apply opacity-0;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-transparent;
+  }
+}

@@ -1,0 +1,7 @@
+@utility bg-angle {
+  background-image: url("/public/images/icons/angle.svg");
+}
+
+@utility bg-checkmark {
+  background-image: url("/public/images/icons/checkmark.svg");
+}

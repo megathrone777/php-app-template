@@ -1,0 +1,6 @@
+@theme inline {
+  --default-font-family:
+    "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  --font-display: "Avenir";
+}

@@ -1,0 +1,20 @@
+<form
+	action="/src/web/helpers/sendEmail.php"
+	class="flex flex-col gap-4"
+	method="POST"
+>
+	<input name="template" type="hidden" value="contacts">
+	<input name="title" type="hidden" value="Contact form">
+	
+	<div>
+		<input class="bg-gray-200" name="email" type="email">
+	</div>
+
+	<div>
+		<input class="bg-gray-200" name="name" type="text">
+	</div>
+
+	<div>
+		<button class="bg-gray-200" type="submit">Send</button>
+	</div>
+</form>

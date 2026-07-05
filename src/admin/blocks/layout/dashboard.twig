@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	{% include "admin/blocks/head.twig" %}
+
+	<body class="antialiased font-display">
+		{% include "admin/blocks/header.twig" %}
+
+		<main>
+			<div class="container">
+				<div class="flex gap-x-4">
+					<div class="shrink-0">
+						{% include "admin/blocks/sidebar.twig" %}
+					</div>
+
+					<div class="grow pb-3">
+						{% block content %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

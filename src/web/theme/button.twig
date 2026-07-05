@@ -1,0 +1,78 @@
+{% macro button(props) %}
+	{%
+		set props = {
+      children: "",
+			class: "",
+			disabled: null,
+			href: null,
+			name: null,
+      onClick: null,
+			size: "normal",
+			target: null,
+			template: "primary",
+			type: "button",
+			value: null
+		}|merge(props)
+	%}
+  
+	{%
+		set sizeClasses = {
+			normal: "px-4",
+			small: "px-3"
+		}
+	%}
+
+	{%
+		set templateClasses = {
+			primary: "bg-primary",
+			secondary: "bg-amber-400"
+		}
+	%}
+
+	{% set baseClass = "inline-flex select-none" %}
+	{% set sizeClass = sizeClasses[props.size] ?? sizeClasses.normal %}
+	{% set templateClass = templateClasses[props.template] ?? templateClasses.primary %}
+
+	{% if props.href %}
+		<a
+			class="
+				{{ baseClass }} {{ sizeClass }} {{ templateClass }}
+				{{ props.class }}
+			"
+			href="{{ props.href }}"
+
+			{% if props.target and props.target|length %}
+				target="{{ props.target }}"
+			{% endif %}
+		>
+			{{ props.textContent }}
+		</a>
+	{% else %}
+		<button
+			class="
+				{{ baseClass }} {{ sizeClass }} {{ templateClass }}
+				{{ props.class }}
+			"
+
+			{% if props.disabled %}
+				disabled
+			{% endif %}
+
+			{% if props.name and props.name|length %}
+				name="{{ props.name }}"
+			{% endif %}
+
+			{% if props.onClick %}
+				data-js-on:click="{{ props.onClick }}"
+			{% endif %}
+
+			type="{{ props.type }}"
+
+			{% if props.value %}
+				value="{{ props.value }}"
+			{% endif %}
+		>
+			{{ props.children }}
+		</button>
+	{% endif %}
+{% endmacro %}

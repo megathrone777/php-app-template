@@ -1,0 +1,49 @@
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+
+  select {
+    @apply appearance-none;
+  }
+
+  select:not([size]) {
+    @apply
+      bg-angle bg-no-repeat bg-size-[12px_12px] bg-position-[right_12px_center]
+      pr-10
+      [print-color-adjust:exact];
+  }
+
+  [data-js-cloak] {
+    @apply !hidden;
+  }
+
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="datetime-local"]:focus,
+  [type="month"]:focus,
+  [type="search"]:focus,
+  [type="tel"]:focus,
+  [type="time"]:focus,
+  [type="week"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    @apply
+      border
+      outline-none
+      shadow-none;
+  }
+
+  html {
+    @apply overflow-y-scroll motion-safe:scroll-smooth;
+  }
+
+  svg {
+    @apply aspect-square h-full;
+  }
+}

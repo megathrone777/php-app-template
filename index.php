@@ -7,8 +7,8 @@
 		}
 	}
 
-	require_once __DIR__ . "/config/config.php";
-	require_once __DIR__ . "/config/twig.php";
+	require_once __DIR__ . "/bin/config.php";
+	require_once __DIR__ . "/bin/twig.php";
 
 	$pathname = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 

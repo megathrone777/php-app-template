@@ -1,0 +1,98 @@
+@layer components {
+  .dropzone {
+    @apply
+      block
+      border-4 border-dashed border-gray-300
+      cursor-pointer
+      mb-3
+      p-4.5
+      rounded-lg
+      text-center
+      transition-[background-color,border-color];
+  }
+
+  .dropzone--dragging {
+    @apply bg-gray-200 border-green-700;
+  }
+
+  .dropzone__upload {
+    @apply
+      bg-gray-500
+      font-medium
+      p-1.5
+      rounded-sm
+      text-sm text-white
+      disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-gray-500
+      hover:bg-gray-400;
+  }
+
+  .dropzone__text {
+    @apply
+      block
+      font-semibold
+      text-gray-600 text-xs;
+  }
+
+  .dropzone__thumbs {
+    @apply
+      flex flex-wrap
+      gap-2
+      mb-3;
+  }
+
+  .dropzone__thumbs__item {
+    @apply relative w-30;
+  }
+
+  .dropzone__thumbs__name {
+    @apply
+      block
+      font-semibold
+      text-gray-900 text-sm;
+  }
+
+  .dropzone__thumbs__remove {
+    @apply
+      absolute
+      bg-black/90
+      border-none
+      px-1.5
+      py-1
+      right-1
+      rounded-md
+      text-white text-xs
+      top-1
+      hover:bg-gray-400;
+  }
+
+  .dropzone__thumbs__holder {
+    @apply
+      h-30
+      mb-1
+      overflow-hidden
+      rounded-lg
+      w-full;
+  }
+
+  .dropzone__thumbs__image {
+    @apply
+      block
+      object-cover
+      size-full;
+  }
+
+  .dropzone__result {
+    @apply
+      font-medium
+      mt-1.5
+      text-sm;
+  }
+
+  .dropzone__result--error {
+    @apply text-red-600;
+  }
+
+  .dropzone__result--success {
+    @apply text-green-600;
+  }
+}

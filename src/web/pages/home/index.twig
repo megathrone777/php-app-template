@@ -1,0 +1,30 @@
+{% extends "web/blocks/layout.twig" %}
+{% from "web/theme/button.twig" import button %}
+
+{% block content %}
+	<div class="container">
+		<h1>{{ title }}</h1>
+
+		<div
+			data-js-data="{ isOpened: false }"
+			data-js-on:click.outside="isOpened = false"
+		>
+			{{
+				button({
+					children: "Toggle",
+					onClick: "isOpened = !isOpened"
+				})
+			}}
+
+			<div
+				data-js-cloak
+				data-js-show="isOpened"
+				data-js-transition
+			>
+				<p>Content content</p>
+				<p>Content content</p>
+				<p>Content content</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+<template data-js-if="!!uploadedUrls.length">
+  <div class="dropzone__thumbs">
+    <template
+      data-js-bind:key="`server-${index}-${uploadedUrl}`"
+      data-js-for="(uploadedUrl, index) in uploadedUrls"
+    >
+      <div class="dropzone__thumbs__item">
+        <button
+          data-js-on:click="removeFromServer(index, uploadedUrl)"
+          class="dropzone__thumbs__remove"
+          title="Remove"
+          type="button"
+        >
+          ✕
+        </button>
+
+        <div class="dropzone__thumbs__holder">
+          <img
+            alt=""
+            class="dropzone__thumbs__image"
+            draggable="false"
+            data-js-bind:src="uploadedUrl"
+          >
+        </div>
+
+        <p class="dropzone__text">Saved</p>
+      </div>
+    </template>
+  </div>
+</template>
+
+<template data-js-if="!!localFiles.length">
+  <div class="dropzone__thumbs">
+    <template
+      data-js-bind:key="_id"
+      data-js-for="({ _id, file, preview }, index) in localFiles"
+    >
+      <div class="dropzone__thumbs__item">
+        <button
+          data-js-on:click="removeLocal(index)"
+          class="dropzone__thumbs__remove"
+          title="Remove"
+          type="button"
+        >
+          ✕
+        </button>
+
+        <div class="dropzone__thumbs__holder">
+          <img
+            class="dropzone__thumbs__image"
+            draggable="false"
+            data-js-bind:alt="file.name"
+            data-js-bind:src="preview"
+          >
+        </div>
+
+        <p
+          class="dropzone__thumbs__name"
+          data-js-text="$truncate(file.name, 15)"
+        ></p>
+
+        <p
+          class="dropzone__text"
+          data-js-text="`${(file.size / 1024 / 1024).toFixed(2)} MB`"
+        ></p>
+      </div>
+    </template>
+  </div>
+</template>

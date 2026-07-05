@@ -1,0 +1,28 @@
+<label
+  class="dropzone"
+  data-js-on:dragleave.prevent="isDraggingOver = false"
+  data-js-on:dragover.prevent="isDraggingOver = true"
+  data-js-on:drop.prevent="handleDrop($event)"
+  data-js-bind:class="{
+    'dropzone--dragging': isDraggingOver
+  }"
+>
+  <span class="font-medium">
+    <span class="font-bold">Move files here</span> or click to choose
+  </span>
+
+  <span class="dropzone__text">
+    <span data-js-text="allowedExtensions.join(', ')"></span>
+    • max {{ env("UPLOAD_MAX_SIZE") / 1000000|round }}MB each • max
+    <span>{{ props.maxFiles }}</span>
+    file(s)
+  </span>
+  
+  <input
+    data-js-bind:accept="allowedExtensions"
+    data-js-on:change="handleSelect"
+    multiple
+    style="display:none"
+    type="file"
+  >
+</label>

@@ -1,0 +1,11 @@
+{% extends "web/blocks/layout.twig" %}
+
+{% block content %}
+	<div class="container">
+		<h1>{{ title }}</h1>
+
+    {% if projects|length > 0 %}
+      {% include "./blocks/list.twig" %}
+    {% endif %}
+  </div>
+{% endblock %}

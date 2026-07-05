@@ -2,8 +2,48 @@
 	<meta charset="utf-8">
 	<meta content="initial-scale=1.0, viewport-fit=cover, width=device-width" name="viewport">
 	<title>{{ title }} | ADMIN</title>
+	<style>
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 400;
+			src: url("/public/fonts/AvenirNext-Regular.woff2") format("woff2");
+		}
 
-	{# TODO: подставьте путь к вашей сборке Bootstrap (CSS + JS для алертов/дропдаунов). #}
-	<link href="/build/admin/css/init.css" rel="stylesheet">
-	<script src="/build/admin/js/init.js" type="module"></script>
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 500;
+			src: url("/public/fonts/AvenirNext-Medium.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 600;
+			src: url("/public/fonts/AvenirNext-SemiBold.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 700;
+			src: url("/public/fonts/AvenirNext-Bold.woff2") format("woff2");
+		}
+
+		@font-face {
+			font-display: block;
+			font-family: "Avenir";
+			font-weight: 900;
+			src: url("/public/fonts/AvenirNext-Black.woff2") format("woff2");
+		}
+	</style>
+	<link href="/public/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="/public/favicon.png" rel="apple-touch-icon">
+	<link href="/public/favicon.png" rel="apple-touch-icon" sizes="76x76">
+	<link href="/public/favicon.png" rel="apple-touch-icon" sizes="152x152">
+	<link href="/public/favicon.png" rel="apple-touch-startup-image">
+	<link href="/public/css/dist.css" rel="stylesheet">
+	<script defer src="/src/app/js/alpine.min.js"></script>
+	<script src="/src/app/js/init.js"></script>
 </head>

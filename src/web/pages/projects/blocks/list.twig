@@ -1,0 +1,30 @@
+<div
+  class="
+    flex flex-col
+    gap-4
+  "
+>
+  {% for project in projects %}
+    <a href="/project/{{ project.id }}">
+      {% if project.images|length %}
+        <ul class="flex gap-x-3">
+          {% for projectImage in project.images|json_decode %}
+            <li class="h-20 w-22">
+              <img
+                alt="{{ project.title }}"
+                class="
+                  block
+                  object-cover
+                  size-full
+                "
+                src="{{ projectImage }}"
+              >
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <p>{{ project.title }}</p>
+    </a>
+  {% endfor %}
+</div>

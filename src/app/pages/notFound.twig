@@ -1,0 +1,28 @@
+{% extends layout %}
+
+{% block content %}
+	<div class="h-dvh">
+		<div class="container">
+			<div
+				class="
+					flex flex-col
+					gap-y-4
+					items-center
+					justify-center
+				"
+			>
+				<h1
+					class="
+						font-bold
+						text-3xl
+						lg:text-5xl
+					"
+				>
+					{{ title }}
+				</h1>
+
+				<a href="{{ home|default('/') }}">Go to main page</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

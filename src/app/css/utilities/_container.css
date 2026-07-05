@@ -1,0 +1,8 @@
+@utility container {
+  @apply
+    h-full
+    mx-auto
+    max-w-full
+    px-4
+    lg:max-w-325;
+}

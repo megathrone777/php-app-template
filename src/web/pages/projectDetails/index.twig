@@ -1,0 +1,11 @@
+{% extends "web/blocks/layout.twig" %}
+
+{% block content %}
+	<div class="container">
+		<h1>{{ project.title }}</h1>
+
+		{% for projectImage in project.images|json_decode %}
+			<img src="{{ projectImage }}" alt="{{ project.title }}">
+		{% endfor %}
+	</div>
+{% endblock %}

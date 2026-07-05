@@ -1,0 +1,14 @@
+{
+  "alpine-intellisense.settings.languageScopes": "html,twig,js",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.configFile": "src/app/css/init.css",
+  "tailwindCSS.includeLanguages": {
+    "twig": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "[Cc]lass\\w*\\s*[:=]\\s*[\"']([^\"']*)[\"']",
+    ["[Cc]lasses\\s*=\\s*\\{([^}]*)\\}", "[\"']([^\"']*)[\"']"]
+  ]
+}

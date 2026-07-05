@@ -1,5 +1,13 @@
-{% extends "admin/blocks/layout.twig" %}
+{% extends "admin/blocks/layout/dashboard.twig" %}
+{% from "admin/blocks/dropzone" import dropzone %}
 
 {% block content %}
-	<h1>Dashboard</h1>
+	{{
+		dropzone({
+			entityId: project.id,
+			entityImages: project.images,
+			entityName: "projects",
+			maxFiles: 3
+		})
+	}}
 {% endblock %}

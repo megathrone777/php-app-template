@@ -11,5 +11,30 @@
     "phpmailer/phpmailer": "^7.1",
     "twig/twig": "^3.28"
   },
+  "scripts": {
+    "post-install-cmd": "@tw:download",
+    "post-update-cmd": "@tw:download",
+    "tw:download": "@php bin/tailwind.php download",
+    "dev": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php bin/dev.php"
+    ],
+    "tw:build": "@php bin/tailwind.php -i ./src/app/css/init.css -o ./public/css/dist.css --minify",
+    "tw:watch": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php bin/tailwind.php -i ./src/app/css/init.css -o ./public/css/dist.css --watch"
+    ],
+    "serve": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php -S localhost:8000 index.php"
+    ]
+  },
+  "scripts-descriptions": {
+    "tw:download": "Скачать бинарь Tailwind CLI под текущую ОС в bin/",
+    "dev": "Одной командой: PHP-сервер + авто-пересборка CSS",
+    "serve": "Запустить встроенный PHP-сервер на :8000",
+    "tw:build": "Собрать минифицированный CSS (прод)",
+    "tw:watch": "Следить за шаблонами и пересобирать CSS (dev)"
+  },
   "type": "project"
 }

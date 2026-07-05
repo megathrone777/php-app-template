@@ -1,0 +1,177 @@
+{% macro dropzone(props) %}
+	{%
+		set props = {
+			deleteUrl: "/src/admin/helpers/dropzone/delete.php",
+			entityId: null,
+			maxFiles: 5,
+      entityImages: "",
+      entityName: null,
+			uploadUrl: "/src/admin/helpers/dropzone/upload.php"
+		}|merge(props)
+	%}
+
+  <div
+    data-js-data="{
+      allowedExtensions: '{{ env('UPLOAD_ALLOWED_MIME') }}'.split(','),
+      uploadedUrls: {{ props.entityImages|default('[]') }},
+      isDraggingOver: false,
+      error: '',
+      isLoading: false,
+      localFiles: [],
+      success: '',
+
+      addFiles(filesList) {
+        const files = Array.from(filesList || []);
+
+        this.error = '';
+        this.success = '';
+
+        for (const file of files) {
+          const { name, size, type } = file;
+
+          if (!this.allowedExtensions.includes(type)) {
+            this.error = `Unsupported file format: ${name}`;
+            continue;
+          }
+
+          if (size > +'{{ env('UPLOAD_MAX_SIZE') }}') {
+            this.error = `File size exceeds {{ env("UPLOAD_MAX_SIZE") / 1000000|round }}MB: ${name}`;
+            continue;
+          }
+
+          if (this.localFiles.length >= +'{{ props.maxFiles }}') {
+            this.error = `Max {{ props.maxFiles }} file(s)`;
+            break;
+          }
+
+          this.localFiles.push({
+            _id: $uuid,
+            file,
+            preview: URL.createObjectURL(file)
+          });
+        }
+      },
+
+      clearLocalFiles() {
+        for (const { preview } of this.localFiles) {
+          if (preview) URL.revokeObjectURL(preview);
+        }
+
+        this.localFiles = [];
+      },
+
+      handleDrop({ dataTransfer }) {
+        this.isDraggingOver = false
+        this.addFiles(dataTransfer.files)
+      },
+
+      handleSelect({ target }) {
+        this.addFiles(target.files)
+        target.value = ''
+      },
+
+      filenameFromUrl(url) {
+        try {
+          return decodeURIComponent((new URL(url)).pathname.split('/').pop() || '');
+        } catch {
+          return url.split('/').pop() || '';
+        }
+      },
+
+      async uploadToServer() {
+        if (!this.localFiles.length) return;
+        this.isLoading = true;
+        this.error = '';
+        this.success = '';
+        
+        try {
+          const formData = new FormData();
+
+          for (const { file } of this.localFiles) {
+            formData.append('images[]', file);
+          }
+
+          formData.append('entityName', '{{ props.entityName }}');
+          formData.append('entityId', '{{ props.entityId }}');
+          // To REPLACE instead of append:
+          // fd.append('mode', 'replace');
+
+          const response = await fetch('{{ props.uploadUrl }}', {
+            body: formData,
+            method: 'POST'
+          });
+          const data = await response.json();
+          
+          if (!response.ok || !data.success) {
+            throw new Error(data.error || 'Upload failed');
+          }
+
+          this.uploadedUrls = data.images || this.uploadedUrls;
+          this.success = `Uploaded ${data.uploaded?.length || 0} file(s).`;
+          this.clearLocalFiles();
+
+          const successTimeout = setTimeout(() => {
+            this.success = '';
+            clearTimeout(successTimeout);
+          }, 5000);
+        } catch (error) {
+          this.error = error.message || 'Upload error';
+        } finally {
+          this.isLoading = false;
+        }
+      },
+
+      async removeFromServer(index, uploadedUrl) {
+        this.isLoading = true;
+        this.error = '';
+        this.success = '';
+
+        try {
+          const formData = new FormData();
+
+          formData.append('entityName', '{{ props.entityName }}');
+          formData.append('entityId', '{{ props.entityId }}');
+          formData.append('uploadedUrl', uploadedUrl);
+
+          const response = await fetch('{{ props.deleteUrl }}', {
+            body: formData,
+            method: 'POST',
+          });
+          const data = await response.json();
+
+          if (!response.ok || !data.success) {
+            throw new Error(data.error || 'Failed to delete');
+          }
+
+          this.uploadedUrls.splice(index, 1);
+          this.success = 'File deleted';
+
+          const deleteTimeout = setTimeout(() => {
+            this.success = ''
+            clearTimeout(deleteTimeout);
+          }, 5000);
+        } catch (error) {
+          this.error = error.message || 'Delete error';
+        } finally {
+          this.isLoading = false;
+        }
+      },
+
+      removeLocal(index) {
+        const file = this.localFiles[index];
+
+        if (file?.preview) {
+          URL.revokeObjectURL(file.preview);
+        }
+
+        this.localFiles.splice(index, 1);
+        this.error = '';
+        this.success = '';
+      }
+    }"
+  >
+    {% include "label.twig" %}
+    {% include "thumbs.twig" %}
+    {% include "toolbar.twig" %}
+  </div>
+{% endmacro %}

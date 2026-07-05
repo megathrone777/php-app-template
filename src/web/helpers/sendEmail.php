@@ -1,8 +1,8 @@
 <?php
 	$root = $_SERVER["DOCUMENT_ROOT"];
 
-	require_once $root . "/config/config.php";
-	require_once $root . "/config/twig.php";
+	require_once $root . "/bin/config.php";
+	require_once $root . "/bin/twig.php";
 
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;

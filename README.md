@@ -1,17 +1,7 @@
-### PREPARATION:
-
-- First you need to have [Node.js](https://nodejs.org/en/download/) and [npm](https://nodejs.org/en/download/) installed.
-
-- Then you need to install the software packaging system "yarn" using the command:
+- Then you need to download dependency libraries using the command:
 
 ```bash
-npm install --global yarn
-```
-
-- Then you need to download the javascript dependency libraries using the command:
-
-```bash
-yarn
+composer install
 ```
 
 ### DEVELOPMENT INSTRUCTIONS:
@@ -19,7 +9,8 @@ yarn
 - You can reach the development state using the command:
 
 ```bash
-yarn dev
+composer tw:watch
+composer serve
 ```
 
 ### PRODUCTION INSTRUCTIONS:
@@ -27,5 +18,5 @@ yarn dev
 - Install dependencies
 
 ```bash
-composer install --no-dev --optimize-autoloader
+composer tw:build
 ```

@@ -1,0 +1,21 @@
+@utility overscroll-blur-* {
+	& {
+		@apply relative;
+	}
+
+	&::after {
+		@apply
+			absolute
+			bg-linear-to-t
+			bottom-0
+			content-['']
+			from-gray-200
+			h-[calc(--value(integer)*4)]
+			left-0
+			pointer-coarse:h-[calc(--value(integer)*4px+env(safe-area-inset-bottom))]
+			pointer-events-none
+			right-0
+			to-gray-100/1
+			z-1;
+	}
+}

@@ -1,0 +1,54 @@
+@layer components {
+  .burger {
+    @apply
+      bg-transparent
+      cursor-pointer
+      duration-150
+      inline-block
+      overflow-visible
+      p-0
+      text-inherit
+      transition-opacity;
+
+    &-box {
+      @apply
+        inline-block
+        relative;
+    }
+
+    &-inner {
+      @apply
+        absolute
+        bg-primary
+        block
+        bottom-0
+        delay-130
+        duration-130
+        ease-[cubic-bezier(.55,.055,.675,.19)]
+        h-1
+        rounded-sm
+        top-auto
+        transition-transform
+        -mt-0.5
+        after:block after:content-[''] after:-bottom-2.5 after:-top-5 after:bg-primary
+        after:absolute after:h-1  after:rounded-sm
+        after:delay-[200ms,0ms] after:transition-[top,opacity]
+        after:ease-[cubic-bezier(.33333,.66667,.66667,1),linear] after:duration-[200ms,100ms]
+        before:block before:content-[''] before:-top-2.5 before:bg-primary
+        before:absolute before:h-1 before:rounded-sm
+        before:delay-[200ms,0ms] before:transition-[top,transform]
+        before:ease-[cubic-bezier(.33333,.66667,.66667,1),cubic-bezier(.55,.055,.675,.19)] before:duration-[120ms,130ms];
+    }
+
+    &.active > &-box > &-inner {
+      @apply
+        delay-220
+        ease-[cubic-bezier(.215,.61,.355,1)]
+        transform-[translate3d(0,-10px,0)_rotate(-45deg)]
+        after:top-0 after:opacity-0 after:ease-[cubic-bezier(.33333,0,.66667,.33333),linear]
+        after:duration-[200ms,100ms] after:delay-[0ms,220ms]
+        before:duration-[100ms,130ms] before:ease-[cubic-bezier(.33333,0,.66667,.33333)] before:delay-[160ms,250ms]
+        before:transform-[rotate(-90deg)] before:top-0;
+    }
+  }
+}

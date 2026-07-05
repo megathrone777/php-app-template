@@ -1,0 +1,21 @@
+<button
+  data-js-on:click="uploadToServer"
+  data-js-bind:disabled="!localFiles.length || isLoading"
+  class="dropzone__upload"
+  type="button"
+>
+  <span data-js-show="!isLoading">Upload</span>
+  <span data-js-show="isLoading">Uploading...</span>
+</button>
+
+<p
+  class="dropzone__result dropzone__result--error"
+  data-js-show="error"
+  data-js-text="error"
+></p>
+
+<p
+  class="dropzone__result dropzone__result--success"
+  data-js-show="success"
+  data-js-text="success"
+></p>

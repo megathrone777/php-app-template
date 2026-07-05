@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@import "./variables/_animations.css";
+@import "./variables/_colors.css";
+@import "./variables/_transitions.css";
+@import "./variables/_typography.css";
+
+@import "./_base.css";
+
+@import "./components/box.css";
+@import "./components/burger.css";
+@import "./components/dropzone.css";
+@import "./components/editor.css";
+@import "./components/table.css";
+
+@import "./utilities/_background.css";
+@import "./utilities/_container.css";
+@import "./utilities/_overscroll-blur.css";
+@import "./utilities/_scrollbar-hidden.css";
+
+@source "./*.css";
+@source "../../**/*.twig";
+@source not "../../public/css";

@@ -1,10 +1,11 @@
 .idea
-.env
 .env.prod
-.vscode
+.vscode/*
+!.vscode/settings.json
 *.db
-build
-node_modules
 var
-vendor
+/vendor/
 uploads
+
+bin/tw
+bin/tw.exe
