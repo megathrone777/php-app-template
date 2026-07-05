@@ -3,9 +3,10 @@
 .vscode/*
 !.vscode/settings.json
 *.db
-var
-/vendor/
 uploads
+var
+/public/css/*
+/vendor/
 
 bin/tw
 bin/tw.exe

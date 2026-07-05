@@ -1,3 +1,5 @@
+### PREPARATION:
+
 - Then you need to download dependency libraries using the command:
 
 ```bash
@@ -9,13 +11,12 @@ composer install
 - You can reach the development state using the command:
 
 ```bash
-composer tw:watch
-composer serve
+composer dev
 ```
 
-### PRODUCTION INSTRUCTIONS:
+Open [https://localhost:8000](https://localhost:8000) with your browser to see the result.
 
-- Install dependencies
+- Achieving the deployment state can be done with command:
 
 ```bash
 composer tw:build
